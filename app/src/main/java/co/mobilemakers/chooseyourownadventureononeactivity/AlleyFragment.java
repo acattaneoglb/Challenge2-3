@@ -65,7 +65,16 @@ public class AlleyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_alley, container, false);
+        View view = inflater.inflate(R.layout.fragment_alley, container, false);
+
+        int randomRed = new Random().nextInt(64) + 192;
+        int randomGreen = new Random().nextInt(64) + 192;
+        int randomBlue = new Random().nextInt(64) + 192;
+
+        view.findViewById(R.id.background).setBackgroundColor((randomRed * 256 + randomGreen) * 256 + randomBlue
+            + 0xFF000000);
+
+        return view;
     }
 
     @Override

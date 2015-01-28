@@ -15,6 +15,7 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, new AlleyFragment())
+                .addToBackStack(null)
                 .commit();
     }
 
@@ -22,18 +23,22 @@ public class MainActivity extends Activity {
         FragmentManager fragmentManager = getFragmentManager();
         fragmentManager.beginTransaction()
                 .replace(R.id.container, new RoomFragment())
+                .addToBackStack(null)
                 .commit();
     }
 
     public void winGame() {
         FragmentManager fragmentManager = getFragmentManager();
+        //fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         fragmentManager.beginTransaction()
                 .replace(R.id.container, new WinningFragment())
+                .addToBackStack(null)
                 .commit();
     }
 
     public void loseGame() {
         FragmentManager fragmentManager = getFragmentManager();
+        fragmentManager.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         fragmentManager.beginTransaction()
                 .replace(R.id.container, new LosingFragment())
                 .commit();
